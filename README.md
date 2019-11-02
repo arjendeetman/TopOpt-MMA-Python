@@ -1,2 +1,3 @@
 # TopOpt-MMA-Python
-Example application of the GCMMA-MMA-Python repo in topology optimization. 
+Example application of the [GCMMA-MMA-Python](https://github.com/arjendeetman/GCMMA-MMA-Python) repo in topology optimization. The original toplogy optimization code is written by Niels Aage and Villads Egede Johansen (Technical University of Denmark). The python code is the 
+equivalent of the efficient 88 lines MATLAB code. The original python code can be downloaded [here](http://www.topopt.mek.dtu.dk/Apps-and-software/Topology-optimization-codes-written-in-Python). To use the modified Python code with the MMA optimizer the users need to download the MMA.py from the [GCMMA-MMA-Python](https://github.com/arjendeetman/GCMMA-MMA-Python) repo. 
