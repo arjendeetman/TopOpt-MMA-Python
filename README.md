@@ -6,11 +6,11 @@ Example application of the [GCMMA-MMA-Python](https://github.com/arjendeetman/GC
 Aage,  N.,  Johansen,  V.E.  (2013).  A  165 LINE  TOPOLOGY  OPTIMIZATION  CODE.  Retrieved  November  2,  2019  from 
 http://www.topopt.dtu.dk/files/topopt.py 
 
-Andreassen, E., Clausen, A., Schevenels, M., Lazarov, B.S., Sigmund, O. (2011). Efficient topology optimization in MATLAB 
-using 88 lines of code. Structural and Multidisciplinary Optimization 43. 1-16. doi:10.1007/s00158-010-0594-7 
+[Andreassen, E., Clausen, A., Schevenels, M., Lazarov, B.S., Sigmund, O. (2011). Efficient topology optimization in MATLAB 
+using 88 lines of code. Structural and Multidisciplinary Optimization 43. 1-16. doi:10.1007/s00158-010-0594-7](https://link.springer.com/article/10.1007/s00158-010-0594-7)
 
-Svanberg, K. (1987). The Method of Moving Asymptotes – A new method for structural optimization. International Journal 
-for Numerical Methods in Engineering 24, 359-373. doi:10.1002/nme.1620240207 
+[Svanberg, K. (1987). The Method of Moving Asymptotes – A new method for structural optimization. International Journal 
+for Numerical Methods in Engineering 24, 359-373. doi:10.1002/nme.1620240207](https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620240207)
  
 Svanberg, K. (n.d.). MMA and GCMMA – two methods for nonlinear optimization. Retrieved August 3, 2017 from  
 https://people.kth.se/~krille/mmagcmma.pdf 
