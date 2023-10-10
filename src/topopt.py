@@ -6,7 +6,7 @@ from scipy.sparse import coo_matrix
 from scipy.sparse.linalg import spsolve
 from matplotlib import colors
 import matplotlib.pyplot as plt
-from MMA import mmasub,subsolv
+from mma import mmasub,subsolv
 # MAIN DRIVER
 def main(nelx,nely,volfrac,penal,rmin,ft,xsolv): 
     print("Minimum compliance problem with OC")
