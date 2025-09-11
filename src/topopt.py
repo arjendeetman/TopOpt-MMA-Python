@@ -97,7 +97,7 @@ def main(nelx,nely,volfrac,penal,rmin,ft,xsolv):
     while (change>0.001) and (loop<2000):
         loop = loop+1
         # Setup and solve FE problem
-        sK = ((KE.flatten()[np.newaxis]).T*(Emin+(xPhys)**penal*(Emax-Emin))).flatten(order='F')
+        sK = (KE.flatten()[:,None]*(Emin+(xPhys)**penal*(Emax-Emin))).flatten(order='F')
         K = coo_matrix((sK,(iK,jK)),shape=(ndof,ndof)).tocsc()
         # Remove constrained dofs from matrix
         K = K[free,:][:,free]
@@ -110,10 +110,10 @@ def main(nelx,nely,volfrac,penal,rmin,ft,xsolv):
         dv[:] = np.ones(nely*nelx)
         # Sensitivity filtering:
         if ft == 0:
-            dc[:] = np.asarray((H*(x*dc))[np.newaxis].T/Hs)[:,0] / np.maximum(0.001,x)
+            dc[:] = np.asarray((H*(x*dc))[:,None].T/Hs)[:,0] / np.maximum(0.001,x)
         elif ft == 1:
-            dc[:] = np.asarray(H*(dc[np.newaxis].T/Hs))[:,0]
-            dv[:] = np.asarray(H*(dv[np.newaxis].T/Hs))[:,0]
+            dc[:] = np.asarray(H*(dc[:,None]/Hs))[:,0]
+            dv[:] = np.asarray(H*(dv[:,None]/Hs))[:,0]
         # Optimality criteria
         if xsolv == 0:
             xold1[:] = x
@@ -123,26 +123,28 @@ def main(nelx,nely,volfrac,penal,rmin,ft,xsolv):
             mu0 = 1.0 # Scale factor for objective function
             mu1 = 1.0 # Scale factor for volume constraint function
             f0val = mu0*obj 
-            df0dx = mu0*dc[np.newaxis].T
+            df0dx = mu0*dc[:,None]
             fval = mu1*np.array([[xPhys.sum()/n-volfrac]])
-            dfdx = mu1*(dv/(n*volfrac))[np.newaxis]
-            xval = x.copy()[np.newaxis].T 
+            dfdx = mu1*(dv/(n*volfrac))[None,:]
+            xval = x.copy()[:,None]
             xmma,ymma,zmma,lam,xsi,eta,mu,zet,s,low,upp = \
                 mmasub(m,n,k,xval,xmin,xmax,xold1,xold2,f0val,df0dx,fval,dfdx,low,upp,a0,a,c,d,move)
             xold2 = xold1.copy()
             xold1 = xval.copy()
             x = xmma.copy().flatten()
         # Filter design variables
-        if ft == 0: xPhys[:] = x
-        elif ft == 1: xPhys[:] = np.asarray(H*x[np.newaxis].T/Hs)[:,0]
-        # Compute the change by the inf. norm
-        change = np.linalg.norm(x.reshape(nelx*nely,1)-xold1.reshape(nelx*nely,1),np.inf)
+        if ft == 0: 
+            xPhys[:] = x
+        elif ft == 1: 
+            xPhys[:] = np.asarray(H*x[:,None]/Hs)[:,0]
+        # Compute the change by the inf. norm / maximum change
+        change = np.abs(x-xold1.flatten()).max()
         # Write iteration history to screen (req. Python 2.6 or newer)
         print("it.: {0} , obj.: {1:.3f} Vol.: {2:.3f}, ch.: {3:.3f}".format(loop,obj,x.sum()/n,change))
     # Plot result
     fig,ax = plt.subplots()
-    im = ax.imshow(-xPhys.reshape((nelx,nely)).T, cmap='gray',\
-        interpolation='none', norm=colors.Normalize(vmin=-1,vmax=0))
+    ax.imshow(-xPhys.reshape((nelx,nely)).T, cmap='gray',\
+              interpolation='none', norm=colors.Normalize(vmin=-1,vmax=0))
     plt.show()    
 #element stiffness matrix
 def lk():
@@ -177,10 +179,10 @@ def oc(nelx,nely,x,volfrac,dc,dv,g):
 # The real main driver    
 if __name__ == "__main__":
     # Default input parameters
-    nelx = 150
-    nely = 50
+    nelx = 60
+    nely = 20
     volfrac = 0.5
-    rmin = 1.5
+    rmin = 2.4
     penal = 3.0
     ft = 1 # ft==0 -> sens, ft==1 -> dens
     xsolv = 1 # xsolv==0 -> OC, xsolv==1 -> MMA
