@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from mmapy import mmasub,subsolv
 # MAIN DRIVER
 def main(nelx,nely,volfrac,penal,rmin,ft,xsolv): 
-    print("Minimum compliance problem with OC")
+    print("Minimum compliance problem")
     print("ndes: " + str(nelx) + " x " + str(nely))
     print("volfrac: " + str(volfrac) + ", rmin: " + str(rmin) + ", penal: " + str(penal))
     print("Filter method: " + ["Sensitivity based","Density based"][ft])
