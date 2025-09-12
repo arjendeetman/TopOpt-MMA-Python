@@ -124,7 +124,7 @@ def main(nelx,nely,volfrac,penal,rmin,ft,xsolv):
             mu1 = 1.0 # Scale factor for volume constraint function
             f0val = mu0*obj 
             df0dx = mu0*dc[np.newaxis].T
-            fval = mu1*np.array([[xPhys.sum()/n-volfrac]])
+            fval = mu1*np.array([[xPhys.sum()/(n*volfrac)-1]])
             dfdx = mu1*(dv/(n*volfrac))[np.newaxis]
             xval = x.copy()[np.newaxis].T 
             xmma,ymma,zmma,lam,xsi,eta,mu,zet,s,low,upp = \
