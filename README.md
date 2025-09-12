@@ -1,5 +1,12 @@
 # TopOpt-MMA-Python
-Example application of the [GCMMA-MMA-Python](https://github.com/arjendeetman/GCMMA-MMA-Python) repo in topology optimization. The original toplogy optimization code is written by [Niels Aage and Villads Egede Johansen (Technical University of Denmark)](http://www.topopt.mek.dtu.dk/Apps-and-software/Topology-optimization-codes-written-in-Python). The python code is the equivalent of the efficient 88 lines MATLAB code with a small difference: the orginal code implements a volume equality constraint `vol=v0` while the current code implements a volume inequality constraint `vol<=v0` where the volume may be smaller or equal to a pre-set volume fraction. The original python code can be downloaded [here](http://www.topopt.mek.dtu.dk/Apps-and-software/Topology-optimization-codes-written-in-Python). To use the modified Python code with the MMA optimizer the user needs to install the `mmapy` package with `pip install mmapy`. More information about the package can be found [here](https://github.com/arjendeetman/GCMMA-MMA-Python).
+
+Example application of the [GCMMA-MMA-Python](https://github.com/arjendeetman/GCMMA-MMA-Python) library in topology optimization. The original toplogy optimization code is written by [Niels Aage and Villads Egede Johansen (Technical University of Denmark)](http://www.topopt.mek.dtu.dk/Apps-and-software/Topology-optimization-codes-written-in-Python). The python code is the equivalent of the efficient 88 lines MATLAB code. The original python code can be downloaded [here](http://www.topopt.mek.dtu.dk/Apps-and-software/Topology-optimization-codes-written-in-Python). To use the modified Python code with the MMA optimizer the user needs to install the `mmapy` package with `pip install mmapy`. More information about the package can be found [here](https://github.com/arjendeetman/GCMMA-MMA-Python).
+
+## Intended use
+
+This Python code is intended for engineering education, as stated by the authors of the original code: [Niels Aage and Villads Egede Johansen (Technical University of Denmark)](http://www.topopt.mek.dtu.dk/Apps-and-software/Topology-optimization-codes-written-in-Python).
+
+It serves as an open-source alternative to the classic 99- and 88-line MATLAB codes for topology optimization. The code is designed for students and newcomers to the field, and may be freely used in courses on structural optimization.  
 
 ## References
 
@@ -13,6 +20,6 @@ using 88 lines of code. Structural and Multidisciplinary Optimization 43. 1-16. 
 
 [Svanberg, K. (1987). The Method of Moving Asymptotes – A new method for structural optimization. International Journal 
 for Numerical Methods in Engineering 24, 359-373. doi:10.1002/nme.1620240207](https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620240207)
- 
+
 Svanberg, K. (n.d.). MMA and GCMMA – two methods for nonlinear optimization. Retrieved August 3, 2017 from  
-https://people.kth.se/~krille/mmagcmma.pdf 
+https://people.kth.se/~krille/mmagcmma.pdf
