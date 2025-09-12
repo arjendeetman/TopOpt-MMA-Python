@@ -124,7 +124,7 @@ def main(nelx,nely,volfrac,penal,rmin,ft,xsolv):
             mu1 = 1.0 # Scale factor for volume constraint function
             f0val = mu0*obj 
             df0dx = mu0*dc[:,None]
-            fval = mu1*np.array([[xPhys.sum()/n-volfrac]])
+            fval = mu1*np.array([[xPhys.sum()/(n*volfrac)-1]])
             dfdx = mu1*(dv/(n*volfrac))[None,:]
             xval = x.copy()[:,None]
             xmma,ymma,zmma,lam,xsi,eta,mu,zet,s,low,upp = \
@@ -184,8 +184,8 @@ if __name__ == "__main__":
     volfrac = 0.5
     rmin = 2.4
     penal = 3.0
-    ft = 1 # ft==0 -> sens, ft==1 -> dens
-    xsolv = 1 # xsolv==0 -> OC, xsolv==1 -> MMA
+    ft = 0 # ft==0 -> sens, ft==1 -> dens
+    xsolv = 0 # xsolv==0 -> OC, xsolv==1 -> MMA
     import sys
     if len(sys.argv)>1: nelx    = int(sys.argv[1])
     if len(sys.argv)>2: nely    = int(sys.argv[2])
