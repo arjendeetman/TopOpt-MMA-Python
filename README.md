@@ -4,9 +4,7 @@ Example application of the [GCMMA-MMA-Python](https://github.com/arjendeetman/GC
 
 ## Intended use
 
-This Python code is intended for engineering education, as stated by the authors of the original code: [Niels Aage and Villads Egede Johansen (Technical University of Denmark)](http://www.topopt.mek.dtu.dk/Apps-and-software/Topology-optimization-codes-written-in-Python).
-
-It serves as an open-source alternative to the classic 99- and 88-line MATLAB codes for topology optimization. The code is designed for students and newcomers to the field, and may be freely used in courses on structural optimization.  
+This Python code is based on prior work developed by [Niels Aage and Villads Egede Johansen](http://www.topopt.mek.dtu.dk/Apps-and-software/Topology-optimization-codes-written-in-Python), who made it accessible for use in engineering education. It is specifically tailored for students and newcomers to the field of structural optimization, offering a clear and accessible way to explore optimization concepts. The code may be freely used in academic courses and educational settings.
 
 ## References
 
