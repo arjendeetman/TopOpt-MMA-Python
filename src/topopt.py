@@ -33,7 +33,7 @@ def main(nelx,nely,volfrac,penal,rmin,ft,xsolv):
         m = 1 
         xmin = np.zeros((n,1))
         xmax = np.ones((n,1)) 
-        xval = x[np.newaxis].T 
+        xval = x[:,None] 
         xold1 = xval.copy() 
         xold2 = xval.copy() 
         low = np.ones((n,1))
@@ -179,13 +179,13 @@ def oc(nelx,nely,x,volfrac,dc,dv,g):
 # The real main driver    
 if __name__ == "__main__":
     # Default input parameters
-    nelx = 60
-    nely = 20
+    nelx = 150
+    nely = 50
     volfrac = 0.5
-    rmin = 2.4
+    rmin = 1.5
     penal = 3.0
-    ft = 0 # ft==0 -> sens, ft==1 -> dens
-    xsolv = 0 # xsolv==0 -> OC, xsolv==1 -> MMA
+    ft = 1 # ft==0 -> sens, ft==1 -> dens
+    xsolv = 1 # xsolv==0 -> OC, xsolv==1 -> MMA
     import sys
     if len(sys.argv)>1: nelx    = int(sys.argv[1])
     if len(sys.argv)>2: nely    = int(sys.argv[2])
