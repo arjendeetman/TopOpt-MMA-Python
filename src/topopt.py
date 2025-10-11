@@ -111,7 +111,7 @@ def main(nelx,nely,volfrac,penal,rmin,ft,xsolv):
         dv[:] = np.ones(nely*nelx)
         # Sensitivity filtering:
         if ft == 0:
-            dc[:] = np.asarray((H*(x*dc))[:,None].T/Hs)[:,0] / np.maximum(0.001,x)
+            dc[:] = np.asarray((H*(x*dc))[:,None]/Hs)[:,0] / np.maximum(0.001,x)
         elif ft == 1:
             dc[:] = np.asarray(H*(dc[:,None]/Hs))[:,0]
             dv[:] = np.asarray(H*(dv[:,None]/Hs))[:,0]
